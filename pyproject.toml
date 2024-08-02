@@ -1,0 +1,27 @@
+[project]
+name = "aiml_propagation"
+version = "0.0.1"
+authors = [
+  { name="Jon Lu", email="jonathan.lu@fcc.gov" },
+]
+description = "package containing AI/ML code for propagation prediction"
+readme = "README.md"
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+"Homepage" = "https://bitbucket.fcc.gov/scm/~jonathan.lu/aiml_propagation.git"
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.packages.find]
+namespaces = true
+where = ["src"]
+
+[tool.setuptools.package-data]
+"bdc_analysis.data" = ["*.rst"]
