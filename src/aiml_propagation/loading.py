@@ -11,11 +11,14 @@ y = data['gamma_ideal']
 
 x_train, x_test, y_train, y_test = train_test_split(x, y, test_size = 1, random_state = 42)
 
-model = joblib.load('results/trained_rf_model_grid1.pkl')
+model = joblib.load('results/trained_final_model.pkl')
 
 # predictions
 # this returns a numpy.ndarray with the predicted gamma values - this is the final answer
 y_pred = model.predict(x_test)
+
+df = pd.DataFrame(y_pred)
+df.to_csv('results/running_loaded_predictions.csv')
 
 # evaluating the model 
 mse = mean_squared_error(y_test, y_pred)

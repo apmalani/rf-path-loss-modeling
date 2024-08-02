@@ -39,6 +39,6 @@ results = pd.DataFrame({
     'difference': diff
 })
 
-results.to_csv('results/predicts_v_actuals.csv')
+results.to_csv('results/training_predicts_v_actuals.csv')
 
 joblib.dump(rf, 'results/trained_final_model.pkl')
