@@ -26,7 +26,7 @@ This package contains scripts and routines for AI/ML-based propagation predictio
             - Rerun preprocess.py, changing the "rmv" variable to include or exclude the features you generated
             - Rerun model.py, changing the "params" variable to match the paramters you generated
 3. Other
-    - Run "finetuning_factoring.py" to observe a bar chart of the top weighted features
+    - Run finetuning_factoring.py to observe a bar chart of the top weighted features
     - The file "results/training_predicts_v_actuals.csv" displays the results and differences for every observation in the dataset
         - Currently does so in regards to the input "combined_output_data.csv"
     - The file "results/running_loaded_predictions.csv" displays the pure predictions for the loaded observations 
