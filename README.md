@@ -5,7 +5,7 @@ This package contains scripts and routines for AI/ML-based propagation predictio
 
 ## Set-up
 1. Run this command to git clone  the repo: ```git clone https://bitbucket.fcc.gov/scm/~jonathan.lu/aiml_propagation.git```
-2. Move all pertinent data into this folder or sub-folders: ```K:/Bureaus-Offices/OET/EMCD/TAB/UPM/AI_ML Analysis on PLUM V3.6.0/UPM output files```
+2. Move all pertinent data into the correct folder
 
 ## Usage
 1. Loading
@@ -13,7 +13,7 @@ This package contains scripts and routines for AI/ML-based propagation predictio
         - Change the "dir" variable to the directory of the data you want to load
     - Access the model
         - Quickly run model.py to generate the .pkl file (a few minutes max)
-        - OR load it from the K drive (slower)
+        - OR load it from drive (slower)
     - Run loading.py
         - Access the output data via the numpy.ndarray or the resulting CSV file
 2. Training
