@@ -4,7 +4,7 @@ import os
 
 # replace with the directory of the new data if you want to preprocess the new data and load it into the model (a few minutes, max)
 # keep the same and add the new data to this file if you want to retrain the model (overnight process)
-dir = 'K:/Bureaus-Offices/OET/EMCD/TAB/UPM/AI_ML Analysis on PLUM V3.6.0/UPM output files'
+dir = input()
 dfs = []
 
 for f in os.listdir(dir):
@@ -13,6 +13,7 @@ for f in os.listdir(dir):
         for fn in os.listdir(p):
             pn = os.path.join(p,fn)
             df = pd.read_csv(pn)
+            df['city'] = f[7:-8]
             dfs.append(df)
     else:
         df = pd.read_csv(p)
@@ -80,6 +81,4 @@ rmv = [
 
 data = data.drop(rmv, axis = 1)
 
-print(data.columns)
-
-data.to_csv('src/aiml_propagation/phoenix.csv', index = False)
+data.to_csv('src/aiml_propagation/combined_output_data.csv', index = False)

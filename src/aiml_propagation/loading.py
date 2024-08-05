@@ -1,25 +1,30 @@
 import joblib
-from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_squared_error
 import pandas as pd
 
-# replace with the CSV of the *NEW* data (currently uses all of the old data)
 data = pd.read_csv('src/aiml_propagation/combined_output_data.csv')
 
-x = data.drop('gamma_ideal', axis = 1)
+x = data.drop(['gamma_ideal', 'city'], axis=1)
 y = data['gamma_ideal']
-
-x_train, x_test, y_train, y_test = train_test_split(x, y, test_size = 1, random_state = 42)
+city_info = data['city'] 
 
 model = joblib.load('results/trained_final_model.pkl')
 
-# predictions
-# this returns a numpy.ndarray with the predicted gamma values - this is the final answer
-y_pred = model.predict(x_test)
+y_pred = model.predict(x)
 
-df = pd.DataFrame(y_pred)
-df.to_csv('results/running_loaded_predictions.csv')
+diff = abs(y - y_pred)
 
-# evaluating the model 
-mse = mean_squared_error(y_test, y_pred)
+results = pd.DataFrame({
+    'actual': y,
+    'predicted': y_pred,
+    'difference': diff,
+    'city': city_info 
+})
+
+results.to_csv('results/running_loaded_predictions.csv', index=False)
+
+mse = mean_squared_error(y, y_pred)
 print("MSE: ", mse)
+
+rmse = mse ** 0.5
+print('RMSE: ', rmse)
