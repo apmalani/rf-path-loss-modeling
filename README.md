@@ -4,7 +4,7 @@
 This package contains scripts and routines for AI/ML-based propagation prediction.
 
 ## Set-up
-1. Run this command to git clone  the repo: ```git clone https://bitbucket.fcc.gov/scm/~jonathan.lu/aiml_propagation.git```
+1. ```git clone```  the repo
 2. Move all pertinent data into the correct folder
 
 ## Usage
